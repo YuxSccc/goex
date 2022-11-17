@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 var dm = NewHbdm(&goex.APIConfig{

@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 func newOKExV5Client() *OKExV5 {

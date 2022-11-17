@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 )
 
 const (
@@ -171,8 +171,9 @@ func (ok *OKExV5) GetKlineRecordsV5(instId string, period KlinePeriod, params *u
 }
 
 /*
- Get a iso time
-  eg: 2018-03-16T18:02:48.284Z
+Get a iso time
+
+	eg: 2018-03-16T18:02:48.284Z
 */
 func IsoTime() string {
 	utcTime := time.Now().UTC()
@@ -183,7 +184,7 @@ func IsoTime() string {
 }
 
 /*
- Get a http request body is a json string and a byte array.
+Get a http request body is a json string and a byte array.
 */
 func (ok *OKExV5) BuildRequestBody(params interface{}) (string, *bytes.Reader, error) {
 	if params == nil {

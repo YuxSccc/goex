@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	"github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 )
 
 type req struct {

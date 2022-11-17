@@ -2,9 +2,9 @@ package okex
 
 import (
 	"fmt"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 	"github.com/go-openapi/errors"
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
 	"net/url"
 	"sort"
 	"strings"
@@ -77,7 +77,8 @@ type PlaceOrderResponse struct {
 	ErrorMessage string `json:"error_message"`
 }
 
-/**
+/*
+*
 Must Set Client Oid
 */
 func (ok *OKExSpot) BatchPlaceOrders(orders []Order) ([]PlaceOrderResponse, error) {
@@ -207,7 +208,7 @@ func (ok *OKExSpot) MarketSell(amount, price string, currency CurrencyPair) (*Or
 	})
 }
 
-//orderId can set client oid or orderId
+// orderId can set client oid or orderId
 func (ok *OKExSpot) CancelOrder(orderId string, currency CurrencyPair) (bool, error) {
 	urlPath := "/api/spot/v3/cancel_orders/" + orderId
 	param := struct {
@@ -288,7 +289,7 @@ func (ok *OKExSpot) adaptOrder(response OrderResponse) *Order {
 	return ordInfo
 }
 
-//orderId can set client oid or orderId
+// orderId can set client oid or orderId
 func (ok *OKExSpot) GetOneOrder(orderId string, currency CurrencyPair) (*Order, error) {
 	urlPath := "/api/spot/v3/orders/" + orderId + "?instrument_id=" + currency.AdaptUsdToUsdt().ToSymbol("-")
 	//param := struct {
@@ -480,7 +481,7 @@ func (ok *OKExSpot) GetKlineRecords(currency CurrencyPair, period KlinePeriod, s
 	return klines, nil
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (ok *OKExSpot) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	urlPath := fmt.Sprintf("/api/spot/v3/instruments/%s/trades?limit=%d", currencyPair.AdaptUsdToUsdt().ToSymbol("-"), since)
 

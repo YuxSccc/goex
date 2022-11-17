@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 	"strings"
 	"sync"
 	"time"
@@ -33,7 +33,7 @@ func NewHbdmSwapWs() *HbdmSwapWs {
 	return ws
 }
 
-//构建usdt本位永续合约ws
+// 构建usdt本位永续合约ws
 func NewHbdmLinearSwapWs() *HbdmSwapWs {
 	ws := &HbdmSwapWs{WsBuilder: NewWsBuilder()}
 	ws.WsBuilder = ws.WsBuilder.

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
-	. "github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	. "github.com/YuxSccc/goex/internal/logger"
 )
 
 var HBPOINT = NewCurrency("HBPOINT", "")
@@ -558,7 +558,7 @@ func (hbpro *HuoBiPro) GetDepth(size int, currency CurrencyPair) (*Depth, error)
 	return dep, nil
 }
 
-//倒序
+// 倒序
 func (hbpro *HuoBiPro) GetKlineRecords(currency CurrencyPair, period KlinePeriod, size int, optional ...OptionalParameter) ([]Kline, error) {
 	url := hbpro.baseUrl + "/market/history/kline?period=%s&size=%d&symbol=%s"
 	symbol := strings.ToLower(currency.AdaptUsdToUsdt().ToSymbol(""))

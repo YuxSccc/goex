@@ -8,11 +8,11 @@ import (
 	"sync"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 )
 
-//合约信息
+// 合约信息
 type FutureContractInfo struct {
 	InstrumentID    string  `json:"instrument_id"` //合约ID:如BTC-USD-180213
 	UnderlyingIndex string  `json:"underlying_index"`
@@ -40,7 +40,7 @@ func (ok *OKExFuture) GetExchangeName() string {
 	return OKEX_FUTURE
 }
 
-//获取法币汇率
+// 获取法币汇率
 func (ok *OKExFuture) GetRate() (float64, error) {
 	var response struct {
 		Rate         float64   `json:"rate,string"`
@@ -296,8 +296,8 @@ func (ok *OKExFuture) GetAccounts(currencyPair CurrencyPair) (*FutureAccount, er
 	return acc, nil
 }
 
-//基本上已经报废，OK限制10s一次，但是基本上都会返回error：{"code":30014,"message":"Too Many Requests"}
-//加入currency  pair救活了这个接口
+// 基本上已经报废，OK限制10s一次，但是基本上都会返回error：{"code":30014,"message":"Too Many Requests"}
+// 加入currency  pair救活了这个接口
 func (ok *OKExFuture) GetFutureUserinfo(currencyPair ...CurrencyPair) (*FutureAccount, error) {
 	if len(currencyPair) == 1 {
 		return ok.GetAccounts(currencyPair[0])
@@ -347,7 +347,7 @@ func (ok *OKExFuture) normalizePrice(price float64, pair CurrencyPair) string {
 	return FloatToString(price, 2)
 }
 
-//matchPrice:是否以对手价下单(0:不是 1:是)，默认为0;当取值为1时,price字段无效，当以对手价下单，order_type只能选择0:普通委托
+// matchPrice:是否以对手价下单(0:不是 1:是)，默认为0;当取值为1时,price字段无效，当以对手价下单，order_type只能选择0:普通委托
 func (ok *OKExFuture) PlaceFutureOrder2(matchPrice int, ord *FutureOrder) (*FutureOrder, error) {
 	urlPath := "/api/futures/v3/order"
 	var param struct {
@@ -690,9 +690,11 @@ func (ok *OKExFuture) GetKlineRecords(contractType string, currency CurrencyPair
 	return klines, nil
 }
 
-/**
-  since : 单位秒,开始时间
-  to : 单位秒,结束时间
+/*
+*
+
+	since : 单位秒,开始时间
+	to : 单位秒,结束时间
 */
 func (ok *OKExFuture) GetKlineRecordsByRange(contractType string, currency CurrencyPair, period, since, to int) ([]FutureKline, error) {
 	urlPath := "/api/futures/v3/instruments/%s/candles?start=%s&end=%s&granularity=%d"

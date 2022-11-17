@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	goex "github.com/nntaoli-project/goex"
+	goex "github.com/YuxSccc/goex"
 )
 
 var bs = NewBinanceSwap(&goex.APIConfig{

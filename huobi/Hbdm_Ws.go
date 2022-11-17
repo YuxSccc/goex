@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 	"strings"
 	"sync"
 	"time"
@@ -30,16 +30,16 @@ type TradeResponse struct {
 	}
 }
 
-//"id": 1539842340,
-//"mrid": 268041138,
-//"open": 6740.47,
-//"close": 7800,
-//"high": 7800,
-//"low": 6726.13,
-//"amount": 477.1200312075244664773339914558562673572,
-//"vol": 32414,
-//"count": 1716
-//}
+// "id": 1539842340,
+// "mrid": 268041138,
+// "open": 6740.47,
+// "close": 7800,
+// "high": 7800,
+// "low": 6726.13,
+// "amount": 477.1200312075244664773339914558562673572,
+// "vol": 32414,
+// "count": 1716
+// }
 type DetailResponse struct {
 	Id     int64
 	Open   float64
@@ -145,7 +145,7 @@ func (hbdmWs *HbdmWs) handle(msg []byte) error {
 		hbdmWs.wsConn.SendMessage(pong)
 		return nil
 	}
-	
+
 	var resp WsResponse
 	err := json.Unmarshal(msg, &resp)
 	if err != nil {

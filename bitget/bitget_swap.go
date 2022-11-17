@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 	"net/http"
 	"strconv"
 	"strings"
@@ -291,12 +291,12 @@ func (bs *BitgetSwap) MarketFuturesOrder(currencyPair CurrencyPair, contractType
 	return bs.PlaceFutureOrder2(currencyPair, contractType, "0", amount, openType, 1, 10)
 }
 
-/**
+/*
+*
 * 取消订单
 * @param symbol   btc_usd:比特币    ltc_usd :莱特币
 * @param contractType    合约类型: this_week:当周   next_week:下周   month:当月   quarter:季度
 * @param orderId   订单ID
-
  */
 func (bs *BitgetSwap) FutureCancelOrder(currencyPair CurrencyPair, contractType, orderId string) (bool, error) {
 	uri := "/api/swap/v3/order/cancel_order"
@@ -553,8 +553,8 @@ type MarginLeverage struct {
 }
 
 // side
-//1:多仓
-//2:空仓
+// 1:多仓
+// 2:空仓
 func (bs *BitgetSwap) SetMarginLevel(currencyPair CurrencyPair, level, side int) (*MarginLeverage, error) {
 	uri := "/api/swap/v3/account/leverage"
 
@@ -658,10 +658,10 @@ func (bs *BitgetSwap) GetInstruments() ([]Instrument, error) {
 }
 
 // side
-//1:多仓
-//2:空仓
+// 1:多仓
+// 2:空仓
 // autoAppend追加保证金类型
-//0 不自动追加 1 自动追加
+// 0 不自动追加 1 自动追加
 func (bs *BitgetSwap) ModifyAutoAppendMargin(currencyPair CurrencyPair, side int, autoAppend int) (bool, error) {
 	uri := "/api/swap/v3/account/modifyAutoAppendMargin"
 	reqBody := make(map[string]interface{})

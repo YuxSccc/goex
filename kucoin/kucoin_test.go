@@ -1,7 +1,7 @@
 package kucoin
 
 import (
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 	"testing"
 )
 

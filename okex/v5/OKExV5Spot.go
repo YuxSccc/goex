@@ -6,8 +6,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/nntaoli-project/goex"
-	. "github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 type OKExV5Spot struct {
@@ -345,7 +345,7 @@ func (ok *OKExV5Spot) GetKlineRecords(currency CurrencyPair, period KlinePeriod,
 
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (ok *OKExV5Spot) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	panic("not support")
 }

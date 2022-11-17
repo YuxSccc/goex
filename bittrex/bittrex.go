@@ -3,7 +3,7 @@ package bittrex
 import (
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 	"net/http"
 	"sort"
 )
@@ -109,7 +109,7 @@ func (bx *Bittrex) GetKlineRecords(currency CurrencyPair, period KlinePeriod, si
 	panic("not implement")
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (bx *Bittrex) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	panic("not implement")
 }

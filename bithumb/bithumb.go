@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 	"log"
 	"net/http"
 	"net/url"
@@ -218,10 +218,10 @@ func (bit *Bithumb) GetAccount() (*Account, error) {
 			t := strings.Split(key, "_")
 			currency := NewCurrency(strings.ToUpper(t[len(t)-1]), "")
 			acc.SubAccounts[currency] = SubAccount{
-				Currency: currency,
-				Amount: ToFloat64(datamap[key]),
+				Currency:     currency,
+				Amount:       ToFloat64(datamap[key]),
 				ForzenAmount: ToFloat64(datamap[fmt.Sprintf("in_use_%s", strings.ToLower(currency.String()))]),
-				LoanAmount: 0}
+				LoanAmount:   0}
 		}
 	}
 	//log.Println(datamap)
@@ -321,7 +321,7 @@ func (bit *Bithumb) GetKlineRecords(currency CurrencyPair, period KlinePeriod, s
 	panic("not implement")
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (bit *Bithumb) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	panic("not implement")
 }

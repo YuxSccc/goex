@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 type LendBookItem struct {

@@ -3,7 +3,7 @@ package okex
 import (
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 const (
@@ -42,7 +42,7 @@ func (ok *OKExWallet) GetAccount() (*Account, error) {
 }
 
 /*
- 解释说明
+	解释说明
 
 from或to指定为0时，sub_account为必填项。
 
@@ -72,7 +72,7 @@ func (ok *OKExWallet) Transfer(param TransferParameter) error {
 }
 
 /*
- 认证过的数字货币地址、邮箱或手机号。某些数字货币地址格式为:地址+标签，例："ARDOR-7JF3-8F2E-QUWZ-CAN7F：123456"
+认证过的数字货币地址、邮箱或手机号。某些数字货币地址格式为:地址+标签，例："ARDOR-7JF3-8F2E-QUWZ-CAN7F：123456"
 */
 func (ok *OKExWallet) Withdrawal(param WithdrawParameter) (withdrawId string, err error) {
 	var response struct {

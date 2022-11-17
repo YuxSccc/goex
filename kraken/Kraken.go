@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 	"net/http"
 	"net/url"
 	"sort"
@@ -274,7 +274,7 @@ func (k *Kraken) GetKlineRecords(currency CurrencyPair, period KlinePeriod, size
 	panic("")
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (k *Kraken) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	panic("")
 }

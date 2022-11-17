@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nntaoli-project/goex/internal/logger"
+	"github.com/YuxSccc/goex/internal/logger"
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fasthttp/fasthttpproxy"
 )

@@ -1,10 +1,10 @@
 package okex
 
 import (
-	log "github.com/nntaoli-project/goex/internal/logger"
+	log "github.com/YuxSccc/goex/internal/logger"
 	"testing"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 func newOKExV5SpotClient() *OKExV5Spot {

@@ -4,14 +4,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/nntaoli-project/goex/internal/logger"
+	"github.com/YuxSccc/goex/internal/logger"
 	"net/http"
 	"net/url"
 	"sort"
 	"strings"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 type Hbdm struct {

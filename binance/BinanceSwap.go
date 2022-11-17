@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 const (
@@ -284,7 +284,7 @@ func (bs *BinanceSwap) GetFutureUserinfo(currencyPair ...CurrencyPair) (*FutureA
 	return acc, nil
 }
 
-//@deprecated please call the Wallet api
+// @deprecated please call the Wallet api
 func (bs *BinanceSwap) Transfer(currency Currency, transferType int, amount float64) (int64, error) {
 	params := url.Values{}
 

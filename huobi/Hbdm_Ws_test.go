@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 func TestNewHbdmWs(t *testing.T) {

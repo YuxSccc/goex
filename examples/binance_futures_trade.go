@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/binance"
-	"github.com/nntaoli-project/goex/builder"
+	"github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/binance"
+	"github.com/YuxSccc/goex/builder"
 )
 
 const (

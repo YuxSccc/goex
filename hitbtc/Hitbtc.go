@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 const (
@@ -90,18 +90,20 @@ func (hitbtc *Hitbtc) GetSymbols() ([]goex.CurrencyPair, error) {
 curl "https://api.hitbtc.com/api/2/public/ticker"
 
 [
-  {
-    "ask": "0.050043",
-    "bid": "0.050042",
-    "last": "0.050042",
-    "open": "0.047800",
-    "low": "0.047052",
-    "high": "0.051679",
-    "volume": "36456.720",
-    "volumeQuote": "1782.625000",
-    "timestamp": "2017-05-12T14:57:19.999Z",
-    "symbol": "ETHBTC"
-  }
+
+	{
+	  "ask": "0.050043",
+	  "bid": "0.050042",
+	  "last": "0.050042",
+	  "open": "0.047800",
+	  "low": "0.047052",
+	  "high": "0.051679",
+	  "volume": "36456.720",
+	  "volumeQuote": "1782.625000",
+	  "timestamp": "2017-05-12T14:57:19.999Z",
+	  "symbol": "ETHBTC"
+	}
+
 ]
 */
 func (hitbtc *Hitbtc) GetTicker(currency goex.CurrencyPair) (*goex.Ticker, error) {
@@ -405,24 +407,26 @@ func (hitbtc *Hitbtc) GetKlineRecords(currency goex.CurrencyPair, period goex.Kl
 /*
 curl "https://api.hitbtc.com/api/2/public/candles/ETHBTC?period=M30"
 [
-  {
-    "timestamp": "2017-10-20T20:00:00.000Z",
-    "open": "0.050459",
-    "close": "0.050087",
-    "min": "0.050000",
-    "max": "0.050511",
-    "volume": "1326.628",
-    "volumeQuote": "66.555987736"
-  },
-  {
-    "timestamp": "2017-10-20T20:30:00.000Z",
-    "open": "0.050108",
-    "close": "0.050139",
-    "min": "0.050068",
-    "max": "0.050223",
-    "volume": "87.515",
-    "volumeQuote": "4.386062831"
-  }
+
+	{
+	  "timestamp": "2017-10-20T20:00:00.000Z",
+	  "open": "0.050459",
+	  "close": "0.050087",
+	  "min": "0.050000",
+	  "max": "0.050511",
+	  "volume": "1326.628",
+	  "volumeQuote": "66.555987736"
+	},
+	{
+	  "timestamp": "2017-10-20T20:30:00.000Z",
+	  "open": "0.050108",
+	  "close": "0.050139",
+	  "min": "0.050068",
+	  "max": "0.050223",
+	  "volume": "87.515",
+	  "volumeQuote": "4.386062831"
+	}
+
 ]
 */
 func (hitbtc *Hitbtc) GetKline(currencyPair goex.CurrencyPair, period string, size, since int64) ([]goex.Kline, error) {
@@ -466,20 +470,22 @@ func (hitbtc *Hitbtc) GetKline(currencyPair goex.CurrencyPair, period string, si
 /*
 curl "https://api.hitbtc.com/api/2/public/trades/ETHBTC?from=2018-05-22T07:22:00&limit=2"
 [
-   {
-      "id" : 297604734,
-      "timestamp" : "2018-05-22T07:23:06.556Z",
-      "quantity" : "6.551",
-      "side" : "sell",
-      "price" : "0.083421"
-   },
-   {
-      "side" : "sell",
-      "price" : "0.083401",
-      "quantity" : "0.021",
-      "timestamp" : "2018-05-22T07:23:05.908Z",
-      "id" : 297604724
-   },
+
+	{
+	   "id" : 297604734,
+	   "timestamp" : "2018-05-22T07:23:06.556Z",
+	   "quantity" : "6.551",
+	   "side" : "sell",
+	   "price" : "0.083421"
+	},
+	{
+	   "side" : "sell",
+	   "price" : "0.083401",
+	   "quantity" : "0.021",
+	   "timestamp" : "2018-05-22T07:23:05.908Z",
+	   "id" : 297604724
+	},
+
 ]
 */
 func (hitbtc *Hitbtc) GetTrades(currencyPair goex.CurrencyPair, since int64) ([]goex.Trade, error) {
@@ -536,22 +542,22 @@ func (hitbtc *Hitbtc) doRequest(reqMethod, uri string, ret interface{}) error {
 }
 
 /*
-
 // https://api.hitbtc.com/#order-model
-{
-	"id": 0,
-	"clientOrderId": "d8574207d9e3b16a4a5511753eeef175",
-	"symbol": "ETHBTC",
-	"side": "sell",
-	"status": "new",
-	"type": "limit",
-	"timeInForce": "GTC",
-	"quantity": "0.063",
-	"price": "0.046016",
-	"cumQuantity": "0.000",
-	"createdAt": "2017-05-15T17:01:05.092Z",
-	"updatedAt": "2017-05-15T17:01:05.092Z"
-}
+
+	{
+		"id": 0,
+		"clientOrderId": "d8574207d9e3b16a4a5511753eeef175",
+		"symbol": "ETHBTC",
+		"side": "sell",
+		"status": "new",
+		"type": "limit",
+		"timeInForce": "GTC",
+		"quantity": "0.063",
+		"price": "0.046016",
+		"cumQuantity": "0.000",
+		"createdAt": "2017-05-15T17:01:05.092Z",
+		"updatedAt": "2017-05-15T17:01:05.092Z"
+	}
 */
 func (hitbtc *Hitbtc) toOrder(resp map[string]interface{}) *goex.Order {
 	return &goex.Order{

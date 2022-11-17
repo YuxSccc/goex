@@ -1,8 +1,8 @@
 package huobi
 
 import (
-	"github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	"github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 	"github.com/stretchr/testify/assert"
 	"net"
 	"net/http"
@@ -30,7 +30,6 @@ var (
 	secretkey = ""
 )
 
-//
 var hbpro *HuoBiPro
 
 func init() {
@@ -58,7 +57,7 @@ func TestHuobiPro_GetAccountInfo(t *testing.T) {
 	t.Log(info)
 }
 
-//获取点卡剩余
+// 获取点卡剩余
 func TestHuoBiPro_GetPoint(t *testing.T) {
 	return
 	point := NewHuoBiProPoint(httpProxyClient, apikey, secretkey)
@@ -66,7 +65,7 @@ func TestHuoBiPro_GetPoint(t *testing.T) {
 	t.Log(acc.SubAccounts[HBPOINT])
 }
 
-//获取现货资产信息
+// 获取现货资产信息
 func TestHuobiPro_GetAccount(t *testing.T) {
 	return
 	acc, err := hbpro.GetAccount()
@@ -126,7 +125,7 @@ func TestHuobiPro_GetOneOrder(t *testing.T) {
 func TestHuobiPro_GetOrderHistorys(t *testing.T) {
 	ords, err := hbpro.GetOrderHistorys(
 		goex.NewCurrencyPair2("BTC_USDT"),
-		goex.OptionalParameter{}.Optional("start-date","2020-11-30"))
+		goex.OptionalParameter{}.Optional("start-date", "2020-11-30"))
 	t.Log(err)
 	t.Log(ords)
 }

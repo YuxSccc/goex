@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
-	"github.com/nntaoli-project/goex/internal/logger"
+	. "github.com/YuxSccc/goex"
+	"github.com/YuxSccc/goex/internal/logger"
 	"net/url"
 	"strings"
 )
@@ -18,7 +18,7 @@ func NewWallet(c *APIConfig) *Wallet {
 	return &Wallet{pro: NewHuobiWithConfig(c)}
 }
 
-//获取钱包资产
+// 获取钱包资产
 func (w *Wallet) GetAccount() (*Account, error) {
 	return nil, errors.New("not implement")
 }

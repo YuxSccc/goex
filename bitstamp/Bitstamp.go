@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 )
 
 var (
@@ -457,7 +457,7 @@ func (bitstamp *Bitstamp) GetKlineRecords(currency CurrencyPair, period KlinePer
 
 }
 
-////非个人，整个交易所的交易记录
+// //非个人，整个交易所的交易记录
 func (bitstamp *Bitstamp) GetTrades(currencyPair CurrencyPair, since int64) ([]Trade, error) {
 	panic("not implement")
 }

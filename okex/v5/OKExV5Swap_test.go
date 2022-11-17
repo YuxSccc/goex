@@ -1,8 +1,8 @@
 package okex
 
 import (
-	"github.com/nntaoli-project/goex"
-	log "github.com/nntaoli-project/goex/internal/logger"
+	"github.com/YuxSccc/goex"
+	log "github.com/YuxSccc/goex/internal/logger"
 	"net/http"
 	"testing"
 )

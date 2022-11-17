@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"time"
 
+	"github.com/YuxSccc/goex"
 	"github.com/google/uuid"
-	"github.com/nntaoli-project/goex"
 	"github.com/nubo/jwt"
 )
 
@@ -488,7 +488,7 @@ func (bo *BigoneV3) GetKlineRecords(currency goex.CurrencyPair, period, size, si
 	return klines, nil
 }
 
-//非个人，整个交易所的交易记录
+// 非个人，整个交易所的交易记录
 func (bo *BigoneV3) GetTrades(currencyPair goex.CurrencyPair, since int64) ([]goex.Trade, error) {
 	panic("not implements")
 }

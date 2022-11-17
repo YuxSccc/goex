@@ -1,9 +1,9 @@
 package okex
 
 import (
-	"fmt"
-	. "github.com/nntaoli-project/goex"
 	"errors"
+	"fmt"
+	. "github.com/YuxSccc/goex"
 	"strings"
 )
 
@@ -47,11 +47,13 @@ func (ok *OKExMargin) GetMarginAccount(pair CurrencyPair) (*MarginAccount, error
 	return &acc, nil
 }
 
-/**
-  杠杆交易区借币，
-  pair ： 操作的交易对
-  currency： 需要借的币种
-  amount : 借的金额
+/*
+*
+
+	杠杆交易区借币，
+	pair ： 操作的交易对
+	currency： 需要借的币种
+	amount : 借的金额
 */
 func (ok *OKExMargin) Borrow(parameter BorrowParameter) (borrowId string, err error) {
 	var param = struct {
@@ -199,7 +201,7 @@ func (ok *OKExMargin) CancelOrder(orderId string, currency CurrencyPair) (bool, 
 	return true, nil
 }
 
-//orderId can set client oid or orderId
+// orderId can set client oid or orderId
 func (ok *OKExMargin) GetOneOrder(orderId string, currency CurrencyPair) (*Order, error) {
 	urlPath := "/api/margin/v3/orders/" + orderId + "?instrument_id=" + currency.AdaptUsdToUsdt().ToSymbol("-")
 	//param := struct {

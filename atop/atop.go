@@ -25,7 +25,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	. "github.com/nntaoli-project/goex"
+	. "github.com/YuxSccc/goex"
 
 	"log"
 	"net/http"
@@ -138,7 +138,7 @@ type Atop struct {
 	httpClient *http.Client
 }
 
-//hao
+// hao
 func (at *Atop) buildPostForm(postForm *url.Values) error {
 	postForm.Set("accesskey", at.accessKey)
 	nonce := strconv.FormatInt(time.Now().UnixNano()/1e6, 10)
@@ -158,7 +158,7 @@ func (at *Atop) GetExchangeName() string {
 	return "atop.com"
 }
 
-//hao
+// hao
 func (at *Atop) GetTicker(currency CurrencyPair) (*Ticker, error) {
 	market := strings.ToLower(currency.String())
 	tickerUrl := ApiBaseUrl + fmt.Sprintf(GetTicker, market)
@@ -179,7 +179,7 @@ func (at *Atop) GetTicker(currency CurrencyPair) (*Ticker, error) {
 	return &ticker, nil
 }
 
-//hao
+// hao
 func (at *Atop) GetDepth(size int, currency CurrencyPair) (*Depth, error) {
 	market := strings.ToLower(currency.String())
 	depthUrl := ApiBaseUrl + fmt.Sprintf(GetDepth, market)
@@ -213,7 +213,7 @@ func (at *Atop) GetDepth(size int, currency CurrencyPair) (*Depth, error) {
 	return depth, nil
 }
 
-//hao
+// hao
 func (at *Atop) plateOrder(amount, price string, currencyPair CurrencyPair, orderType, orderSide string) (*Order, error) {
 	pair := at.adaptCurrencyPair(currencyPair)
 	path := ApiBaseUrl + PlateOrder
@@ -274,7 +274,7 @@ func (at *Atop) plateOrder(amount, price string, currencyPair CurrencyPair, orde
 		OrderTime:  int(time.Now().Unix())}, nil
 }
 
-//hao
+// hao
 func (at *Atop) GetAccount() (*Account, error) {
 	params := url.Values{}
 	at.buildPostForm(&params)
@@ -305,22 +305,22 @@ func (at *Atop) GetAccount() (*Account, error) {
 	return &atc, nil
 }
 
-//hao
+// hao
 func (at *Atop) LimitBuy(amount, price string, currencyPair CurrencyPair, opt ...LimitOrderOptionalParameter) (*Order, error) {
 	return at.plateOrder(amount, price, currencyPair, "limit", "buy")
 }
 
-//hao
+// hao
 func (at *Atop) LimitSell(amount, price string, currencyPair CurrencyPair, opt ...LimitOrderOptionalParameter) (*Order, error) {
 	return at.plateOrder(amount, price, currencyPair, "limit", "sale")
 }
 
-//hao
+// hao
 func (at *Atop) MarketBuy(amount, price string, currencyPair CurrencyPair) (*Order, error) {
 	return at.plateOrder(amount, price, currencyPair, "market", "buy")
 }
 
-//hao
+// hao
 func (at *Atop) MarketSell(amount, price string, currencyPair CurrencyPair) (*Order, error) {
 	return at.plateOrder(amount, price, currencyPair, "market", "sale")
 }
@@ -360,7 +360,7 @@ func (at *Atop) CancelOrder(orderId string, currencyPair CurrencyPair) (bool, er
 	return true, nil
 }
 
-//hao？
+// hao？
 func (at *Atop) GetOneOrder(orderId string, currencyPair CurrencyPair) (*Order, error) {
 	currencyPair = at.adaptCurrencyPair(currencyPair)
 	path := ApiBaseUrl + GetOrder
@@ -428,7 +428,7 @@ func (at *Atop) GetOneOrder(orderId string, currencyPair CurrencyPair) (*Order, 
 	return &ord, nil
 }
 
-//hao
+// hao
 func (at *Atop) GetUnfinishOrders(currencyPair CurrencyPair) ([]Order, error) {
 	pair := at.adaptCurrencyPair(currencyPair)
 	path := ApiBaseUrl + GetOpenOrders
@@ -471,7 +471,7 @@ func (at *Atop) GetUnfinishOrders(currencyPair CurrencyPair) ([]Order, error) {
 	return orders, nil
 }
 
-//hao
+// hao
 func (at *Atop) GetKlineRecords(currency CurrencyPair, period KlinePeriod, size int, opt ...OptionalParameter) ([]Kline, error) {
 	pair := at.adaptCurrencyPair(currency)
 	params := url.Values{}

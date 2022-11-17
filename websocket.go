@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
+	. "github.com/YuxSccc/goex/internal/logger"
 	"github.com/gorilla/websocket"
-	. "github.com/nntaoli-project/goex/internal/logger"
 )
 
 type WsConfig struct {

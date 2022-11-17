@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nntaoli-project/goex"
+	"github.com/YuxSccc/goex"
 )
 
 var config = &goex.APIConfig{
