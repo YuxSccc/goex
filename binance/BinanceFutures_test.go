@@ -1,10 +1,14 @@
 package binance
 
 import (
+	"fmt"
 	"github.com/YuxSccc/goex"
 	"github.com/YuxSccc/goex/internal/logger"
+	"net"
 	"net/http"
+	"net/url"
 	"testing"
+	"time"
 )
 
 var baDapi = NewBinanceFutures(&goex.APIConfig{
@@ -62,4 +66,29 @@ func TestBinanceFutures_GetFuturePosition(t *testing.T) {
 
 func TestBinanceFutures_GetUnfinishFutureOrders(t *testing.T) {
 	t.Log(baDapi.GetUnfinishFutureOrders(goex.BTC_USD, goex.QUARTER_CONTRACT))
+}
+
+func Test_main(t *testing.T) {
+	cfg := &goex.APIConfig{
+		Endpoint: "https://fapi.binance.com",
+		HttpClient: &http.Client{
+			Transport: &http.Transport{
+				Proxy: func(req *http.Request) (*url.URL, error) {
+					return url.Parse("http://127.0.0.1:7890")
+				},
+				Dial: (&net.Dialer{
+					Timeout: 10 * time.Second,
+				}).Dial,
+			},
+			Timeout: 10 * time.Second,
+		},
+		Lever: 5,
+	}
+	api := NewBinanceSwap(cfg)
+	tc, _ := api.GetExchangeSwapInfo()
+	for _, item := range tc.Symbols {
+		if item.Symbol == "FOOTBALLUSDT" {
+			fmt.Println(item)
+		}
+	}
 }

@@ -19,7 +19,8 @@ const (
 
 type BinanceSwap struct {
 	Binance
-	f *BinanceFutures
+	f        *BinanceFutures
+	swapInfo *ExchangeInfo
 }
 
 func NewBinanceSwap(config *APIConfig) *BinanceSwap {
@@ -53,6 +54,30 @@ func (bs *BinanceSwap) SetBaseUri(uri string) {
 
 func (bs *BinanceSwap) GetExchangeName() string {
 	return BINANCE_SWAP
+}
+
+func (bs *BinanceSwap) GetExchangeSwapInfo() (*ExchangeInfo, error) {
+	if bs.ExchangeInfo == nil {
+		err := bs.RefreshExchangeSwapInfo()
+		if err != nil {
+			return nil, err
+		}
+	}
+	return bs.swapInfo, nil
+}
+
+func (bs *BinanceSwap) RefreshExchangeSwapInfo() error {
+	resp, err := HttpGet5(bs.httpClient, bs.apiV1+"exchangeInfo", nil)
+	if err != nil {
+		return err
+	}
+	info := &ExchangeInfo{}
+	err = json.Unmarshal(resp, info)
+	if err != nil {
+		return err
+	}
+	bs.swapInfo = info
+	return nil
 }
 
 func (bs *BinanceSwap) Ping() bool {
